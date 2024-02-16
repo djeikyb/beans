@@ -1,0 +1,4 @@
+/artifacts
+.DS_Store
+*.sw[pon]
+.idea/
