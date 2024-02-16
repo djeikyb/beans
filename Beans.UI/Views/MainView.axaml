@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Beans.ViewModels;assembly=Beans.Core"
+             xmlns:vmg="clr-namespace:Beans.ViewModels.Gitlab;assembly=Beans.Core"
+             xmlns:gitlab="clr-namespace:Beans.Views.Gitlab"
+             xmlns:views="clr-namespace:Beans.Views"
+             FontFamily="avares://Avalonia.Fonts.Inter/Assets#Inter"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="740"
+             x:Class="Beans.Views.MainView"
+             x:CompileBindings="True" x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <vm:MainViewModel>
+    </vm:MainViewModel>
+  </Design.DataContext>
+  <gitlab:GitlabJobView />
+</UserControl>
