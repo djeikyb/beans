@@ -36,4 +36,10 @@ public class GitlabJobViewModel : ObservableObject
             }
         );
     }
+
+    public decimal? Duration
+    {
+        get => _job.Duration;
+        set => SetProperty(_job.Duration, value, _job, (u, n) => u.Duration = n);
+    }
 }
