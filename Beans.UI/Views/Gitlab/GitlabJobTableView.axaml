@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="clr-namespace:Beans.Views"
+             xmlns:vm="clr-namespace:Beans.ViewModels;assembly=Beans.Core"
+             xmlns:vmg="clr-namespace:Beans.ViewModels.Gitlab;assembly=Beans.Core"
+             xmlns:gitlab="clr-namespace:Beans.Views.Gitlab"
+             xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System.ObjectModel"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
+             x:Class="Beans.Views.Gitlab.GitlabJobTableView"
+             x:CompileBindings="True" x:DataType="vm:MainViewModel">
+
+  <Design.DataContext>
+    <vm:MainViewModel GitlabToken="glpat-some-token">
+      <vm:MainViewModel.Jobs>
+        <objectModel:ObservableCollection x:TypeArguments="vmg:GitlabJobViewModel">
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1010" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1011" Duration="2.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1012" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1013" Duration="3.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1014" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1015" Duration="4.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1016" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1017" Duration="3.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1018" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1019" Duration="2.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1020" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1021" Duration="3.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1022" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1023" Duration="4.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1024" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1025" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1026" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1027" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1028" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1029" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1030" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1031" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1032" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1033" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1034" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1035" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1036" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1037" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1038" Duration="1.1" />
+          <vmg:GitlabJobViewModel Name="some job" PipelineId="1039" Duration="1.1" />
+        </objectModel:ObservableCollection>
+      </vm:MainViewModel.Jobs>
+    </vm:MainViewModel>
+  </Design.DataContext>
+  <DockPanel VerticalAlignment="Stretch">
+    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
+      <Button Command="{Binding ClickyClickCommand}">Clack</Button>
+      <Button Command="{Binding FetchJobsCommand}">Fetch</Button>
+      <Button Command="{Binding FetchJobsCancelCommand}">Stop</Button>
+    </StackPanel>
+    <DockPanel DockPanel.Dock="Top" VerticalAlignment="Stretch">
+      <CheckBox DockPanel.Dock="Right"
+                IsChecked="{Binding RevealGitlabToken}"
+                Margin="10 5 10 0">
+        Show
+      </CheckBox>
+      <TextBox Text="{Binding GitlabToken}"
+               PasswordChar="*"
+               RevealPassword="{Binding RevealGitlabToken}"
+               Margin="10 5 5 0" />
+    </DockPanel>
+    <DataGrid ItemsSource="{Binding Jobs}"
+              Margin="10 10 10 10"
+              CanUserSortColumns="True"
+              GridLinesVisibility="All"
+              BorderThickness="1" BorderBrush="Gray"
+              IsReadOnly="True">
+
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+        <DataGridTextColumn Header="Pipeline" Binding="{Binding PipelineId}" />
+        <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
+      </DataGrid.Columns>
+
+    </DataGrid>
+  </DockPanel>
+</UserControl>

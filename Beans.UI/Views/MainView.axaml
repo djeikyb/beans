@@ -14,5 +14,5 @@
     <vm:MainViewModel>
     </vm:MainViewModel>
   </Design.DataContext>
-  <gitlab:GitlabJobView />
+  <gitlab:GitlabJobTableView />
 </UserControl>
